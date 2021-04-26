@@ -1,0 +1,18 @@
+{
+  "bin": {
+    "ifsc": "jdeploy-bundle/jdeploy.js"
+  },
+  "author": "Rajat Sharma",
+  "description": "",
+  "main": "index.js",
+  "preferGlobal": true,
+  "repository": "",
+  "version": "1.0.0",
+  "jdeploy": {},
+  "dependencies": {
+    "shelljs": "^0.7.5"
+  },
+  "license": "MIT",
+  "name": "@rajatsharma/ifsc-cli",
+  "files": [ "jdeploy-bundle" ]
+}
