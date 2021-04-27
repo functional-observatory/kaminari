@@ -29,9 +29,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and Publish latest Docker image
-        uses: VaultVulp/gp-docker-action@1.1.8
+      - name: Publish Docker Image to GPR
+        uses: machine-learning-apps/gpr-docker-publish@master
+        id: docker
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          image-name: ifsc-cli # Provide only Docker image name, tag will be automatically set to latest
-          build-context: ./target/docker/
+          IMAGE_NAME: 'ifsc-cli'
+          DOCKERFILE_PATH: 'target/docker/Dockerfile'
+          BUILD_CONTEXT: 'target/docker/'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
