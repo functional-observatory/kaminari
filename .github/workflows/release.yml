@@ -40,5 +40,5 @@ jobs:
         with:
           tags: lunasunkaiser/ifsc-cli
           context: ./target/docker
-          file: Dockerfile
+          file: ./target/docker/Dockerfile
           push: true
