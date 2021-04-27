@@ -18,7 +18,7 @@ java -jar downloaded.jar BANKIFSC001
 - Run docker image:
 
 ```shell
-docker run docker.pkg.github.com/rajatsharma/ifsc-cli/ifsc-cli:latest BANKIFSC001
+docker run lunasunkaiser/ifsc-cli:latest BANKIFSC001
 ```
 
 ## Usage
