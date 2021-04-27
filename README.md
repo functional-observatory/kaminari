@@ -2,18 +2,31 @@
 
 > Simple cli to get Bank information from IFSC code
 
-## Installation
+## Usage
 
-```sh
-curl http://example.com --output /tmp/ifsc.tar.gz --silent
-tar -xf /tmp/ifsc.tar.gz
-cd /tmp/ifsc
-sudo make install PREFIX="/usr/local"
-cd -
+### Download Jar
+
+- Download jar from latest [release](https://github.com/rajatsharma/ifsc-cli/releases).
+- Run downloaded jar using:
+
+```shell
+java -jar downloaded.jar BANKIFSC001
+```
+
+### Using Docker
+
+- Run docker image:
+
+```shell
+docker run docker.pkg.github.com/rajatsharma/ifsc-cli/ifsc-cli:latest BANKIFSC001
 ```
 
 ## Usage
 
 ```sh
-ifsc BANKIFSC001
+ifsc [BANKIFSC]
 ```
+
+## License
+
+[![Apache-2.0](https://img.shields.io/badge/-Apache-black?style=flat-square)](/LICENSE)
