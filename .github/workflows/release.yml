@@ -34,4 +34,4 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           image-name: ifsc-cli # Provide only Docker image name, tag will be automatically set to latest
-          dockerfile: target/docker/Dockerfile
+          build-context: ./target/docker/
