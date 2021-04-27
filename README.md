@@ -1,8 +1,8 @@
 # Ifsc-Cli
 
-> Simple cli to get Bank information from IFSC code
+> Simple cli to get Bank information from IFSC (Indian Financial System Code)
 
-## Usage
+## Installation
 
 ### Download Jar
 
