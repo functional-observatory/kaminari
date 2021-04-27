@@ -38,6 +38,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
+          tags: lunasunkaiser/ifsc-cli
           context: ./target/docker
           file: Dockerfile
           push: true
