@@ -10,8 +10,8 @@ object Main extends App {
 
   val bank = read[Bank](response.text())
 
-  println("Bank name: ", bank.BANK)
-  println("Bank branch: ", bank.BRANCH)
-  println("Bank address: ", bank.ADDRESS)
-  println("Bank city: ", bank.CITY)
+  println("Bank name: %s".format(bank.BANK))
+  println("Bank branch: %s".format(bank.BRANCH))
+  println("Bank address: %s".formar(bank.ADDRESS))
+  println("Bank city: %s".format(bank.CITY))
 }
