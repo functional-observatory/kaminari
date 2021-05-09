@@ -12,6 +12,6 @@ object Main extends App {
 
   println("Bank name: %s".format(bank.BANK))
   println("Bank branch: %s".format(bank.BRANCH))
-  println("Bank address: %s".formar(bank.ADDRESS))
+  println("Bank address: %s".format(bank.ADDRESS))
   println("Bank city: %s".format(bank.CITY))
 }
