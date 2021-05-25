@@ -1,3 +1,5 @@
+import scala.io.StdIn
+
 object Main extends App {
   val token = sys.env.get("NOTION_TOKEN") match {
     case Some(token) => token
@@ -26,6 +28,16 @@ object Main extends App {
   }
 
   val trash = Notion.getTrash(spaceId)
+
+  println(
+    "The following pages will be deleted permanently, to confirm press ENTER or press CTRL+C to abort."
+  )
+
+  trash.foreach(id => {
+    println(id)
+  })
+
+  StdIn.readLine()
 
   Notion.deleteBlocks(trash, true)
   println("Successfully purged")

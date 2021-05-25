@@ -12,8 +12,8 @@ _A Simple script to delete all pages in trash of a Notion's Workspace_
   - Open developer tools (hit F12)
   - Navigate to the Application tab (may be hidden if the developer window is small)
   - Expand Cookies under the Storage section on the sidebar
-  - Click on 'https://www.notion.so' to view all the cookies
-  - Copy the value for the key 'token_v2'
+  - Click on `https://www.notion.so` to view all the cookies
+  - Copy the value for the key `token_v2`
 
 - Set `NOTION_TOKEN` environment variable as the copied value.
 
