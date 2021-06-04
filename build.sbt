@@ -1,28 +1,62 @@
-ThisBuild / scalaVersion := "2.13.4"
-ThisBuild / version := "0.1.0-alpha.1"
-ThisBuild / organizationName := "ifsc-cli"
+name := "kaminari"
+ThisBuild / scalaVersion := "2.13.6"
 
-enablePlugins(DockerPlugin)
+// PROJECTS
 
-lazy val root = (project in file("."))
+lazy val global = project
+  .in(file("."))
+  .settings(settings)
+  .disablePlugins(AssemblyPlugin)
+  .aggregate(
+    ifsc,
+    notionPurge
+  )
+
+lazy val ifsc = project
   .settings(
-    name := "ifsc-cli",
-    mainClass in assembly := Some("ifsc.Main"),
-    assemblyJarName in assembly := "ifsc.jar",
+    name := "ifsc",
+    settings,
+    assemblySettings,
     libraryDependencies ++= Seq(
-      "com.lihaoyi" %% "requests" % "0.6.5",
-      "com.lihaoyi" %% "upickle" % "1.3.8"
+      dependencies.requests,
+      dependencies.upickle
     )
   )
 
-docker / dockerfile := {
-  // The assembly task generates a fat JAR file
-  val artifact: File = assembly.value
-  val artifactTargetPath = s"/app/${artifact.name}"
+lazy val notionPurge = project
+  .settings(
+    name := "notion-purge",
+    settings,
+    assemblySettings,
+    libraryDependencies ++= Seq(
+      dependencies.requests,
+      dependencies.upickle
+    )
+  )
 
-  new Dockerfile {
-    from("openjdk:8-jre")
-    add(artifact, artifactTargetPath)
-    entryPoint("java", "-jar", artifactTargetPath)
+// DEPENDENCIES
+
+lazy val dependencies =
+  new {
+    val requests = "com.lihaoyi" %% "requests" % "0.6.9"
+    val upickle = "com.lihaoyi" %% "upickle" % "1.3.15"
   }
-}
+
+// SETTINGS
+
+lazy val assemblySettings = Seq(
+  assembly / assemblyJarName := name.value + ".jar",
+  assembly / assemblyOutputPath := file("target/jars/" + name.value + ".jar")
+)
+
+lazy val compilerOptions = Seq(
+  "-encoding",
+  "utf8"
+)
+
+lazy val commonSettings = Seq(
+  scalacOptions ++= compilerOptions
+)
+
+lazy val settings =
+  commonSettings
