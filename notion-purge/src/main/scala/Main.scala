@@ -12,8 +12,7 @@ object Main extends App {
 
   val spaces = Notion.getSpaces
     .map(linkedHashmap => linkedHashmap._2.obj)
-    .map(account => account("space").obj)
-    .flatten
+    .flatMap(account => account("space").obj)
     .map(linkedHashmap => linkedHashmap._2.obj)
     .map(space => space("value").obj)
 
@@ -39,6 +38,6 @@ object Main extends App {
 
   StdIn.readLine()
 
-  Notion.deleteBlocks(trash, true)
+  Notion.deleteBlocks(trash, permanentlyDelete = true)
   println("Successfully purged")
 }

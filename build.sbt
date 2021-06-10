@@ -12,9 +12,9 @@ lazy val global = project
     notionPurge
   )
 
-lazy val ifsc = project
+lazy val ifsc = (project in file("ifsc-cli"))
   .settings(
-    name := "ifsc",
+    name := "ifsc-cli",
     settings,
     assemblySettings,
     libraryDependencies ++= Seq(
@@ -23,7 +23,7 @@ lazy val ifsc = project
     )
   )
 
-lazy val notionPurge = project
+lazy val notionPurge = (project in file("notion-purge"))
   .settings(
     name := "notion-purge",
     settings,

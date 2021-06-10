@@ -1,9 +1,0 @@
-{
-  "files.watcherExclude": {
-    "**/target": true
-  },
-  "[scala]": {
-    "editor.suggestSelection": "first",
-    "editor.formatOnSave": true
-  }
-}

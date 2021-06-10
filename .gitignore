@@ -3,3 +3,5 @@
 .metals
 target
 project/project
+.idea/
+.bsp/

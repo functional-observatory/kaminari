@@ -1,5 +1,3 @@
-package ifsc
-
 case class Bank(
     BANK: String,
     IFSC: String,

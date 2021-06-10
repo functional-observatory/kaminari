@@ -1,5 +1,3 @@
-package ifsc
-
 import upickle.default._
 
 object Main extends App {
