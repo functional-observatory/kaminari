@@ -1,14 +1,12 @@
 import scala.io.StdIn
 
-object Main extends App {
+@main def main(workspace: String): Unit =
   val token = sys.env.get("NOTION_TOKEN") match {
     case Some(token) => token
     case None        => throw new RuntimeException("NOTION_TOKEN not found in env")
   }
 
   Notion.setToken(token)
-
-  val workspace = args(0)
 
   val spaces = Notion.getSpaces
     .map(linkedHashmap => linkedHashmap._2.obj)
@@ -40,4 +38,4 @@ object Main extends App {
 
   Notion.deleteBlocks(trash, permanentlyDelete = true)
   println("Successfully purged")
-}
+
