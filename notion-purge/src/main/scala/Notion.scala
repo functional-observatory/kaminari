@@ -1,30 +1,27 @@
 import java.net.HttpCookie
 import upickle.default._
 
-object Notion {
+object Notion:
   val baseUrl = "https://www.notion.so/api/v3"
   val spacesUrl = s"$baseUrl/getSpaces"
   val searchUrl = s"$baseUrl/search"
   val deleteBlocksUrl = s"$baseUrl/deleteBlocks"
   var token = ""
 
-  def setToken(token: String) = {
+  def setToken(token: String) =
     this.token = token
-  }
 
-  def getCookies = {
+  def getCookies =
     Map("token_v2" -> new HttpCookie("token_v2", token))
-  }
 
-  def getSpaces = {
+  def getSpaces =
     val response =
       requests
         .post(Notion.spacesUrl, cookies = getCookies)
         .text()
     read[ujson.Value](response).obj
-  }
 
-  def getTrash(spaceId: String) = {
+  def getTrash(spaceId: String) =
     val body =
       ujson.Obj(
         "limit" -> 1000,
@@ -54,9 +51,8 @@ object Notion {
       .obj("results")
       .arr
       .map(result => result("id").str)
-  }
 
-  def deleteBlocks(blocks: ujson.Arr, permanentlyDelete: Boolean) = {
+  def deleteBlocks(blocks: ujson.Arr, permanentlyDelete: Boolean) =
     val data = ujson.Obj(
       "blockIds" -> blocks,
       "permanentlyDelete" -> permanentlyDelete
@@ -70,5 +66,3 @@ object Notion {
       )
 
     read[ujson.Value](response)
-  }
-}
