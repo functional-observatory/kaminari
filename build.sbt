@@ -22,6 +22,7 @@ lazy val ifsc = (project in file("ifsc-cli"))
       dependencies.upickle
     )
   )
+  .enablePlugins(PackPlugin)
 
 lazy val notionPurge = (project in file("notion-purge"))
   .settings(
@@ -33,6 +34,7 @@ lazy val notionPurge = (project in file("notion-purge"))
       dependencies.upickle
     )
   )
+  .enablePlugins(PackPlugin)
 
 // DEPENDENCIES
 
@@ -55,7 +57,8 @@ lazy val compilerOptions = Seq(
 )
 
 lazy val commonSettings = Seq(
-  scalacOptions ++= compilerOptions
+  scalacOptions ++= compilerOptions,
+  packMain := Map(name.value -> "main")
 )
 
 lazy val settings =
