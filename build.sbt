@@ -12,7 +12,7 @@ lazy val global = project
     notionPurge
   )
 
-lazy val ifscCli = (project in file("ifsc-cli"))
+lazy val ifscCli = Project(id = "ifsc-cli", base = file("ifsc-cli"))
   .settings(
     name := "ifsc-cli",
     settings,
@@ -24,7 +24,7 @@ lazy val ifscCli = (project in file("ifsc-cli"))
   )
   .enablePlugins(PackPlugin)
 
-lazy val notionPurge = (project in file("notion-purge"))
+lazy val notionPurge = Project(id = "notion-purge", base = file("notion-purge"))
   .settings(
     name := "notion-purge",
     settings,

@@ -6,10 +6,10 @@ _A Simple script to delete all pages in trash of a Notion's Workspace_
 
 ## Get Started
 
-- Install
+### Install Locally
 
 ```shell
-./sbtx "notionPurge / packInstall"
+./sbtx "notion-purge / packInstall"
 ```
 
 Make sure `$HOME/local/bin` is in your `PATH`.
@@ -29,7 +29,7 @@ Make sure `$HOME/local/bin` is in your `PATH`.
 - Run:
 
 ```shell
-java -jar notion-purge.jar <Workspace Name>
+notion-purge <Workspace Name>
 ```
 
 **Work in Progess: Please do not use this script yet or you may lose your Notion pages**
