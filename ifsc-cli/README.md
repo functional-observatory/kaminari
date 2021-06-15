@@ -13,20 +13,16 @@
 java -jar downloaded.jar BANKIFSC001
 ```
 
-### Using Docker
-
-- Run docker image:
+### Install locally
 
 ```shell
-docker run lunasunkaiser/ifsc-cli:latest BANKIFSC001
+./sbtx "ifscCli / packInstall"
 ```
+
+Make sure `$HOME/local/bin` is in your `PATH`.
 
 ## Usage
 
 ```sh
 ifsc [BANKIFSC]
 ```
-
-## License
-
-[![Apache-2.0](https://img.shields.io/badge/-Apache-black?style=flat-square)](/LICENSE)

@@ -4,6 +4,15 @@
 
 _A Simple script to delete all pages in trash of a Notion's Workspace_
 
+## Get Started
+
+- Install
+
+```shell
+./sbtx "notionPurge / packInstall"
+```
+
+Make sure `$HOME/local/bin` is in your `PATH`.
 
 ## Usage
 

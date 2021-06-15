@@ -8,11 +8,11 @@ lazy val global = project
   .settings(settings)
   .disablePlugins(AssemblyPlugin)
   .aggregate(
-    ifsc,
+    ifscCli,
     notionPurge
   )
 
-lazy val ifsc = (project in file("ifsc-cli"))
+lazy val ifscCli = (project in file("ifsc-cli"))
   .settings(
     name := "ifsc-cli",
     settings,
